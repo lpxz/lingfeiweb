@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+{% block content %}
+<pre><code class="Swift">
+
+<div id="post-page" class="push-left post">
+    {% for line, highlightOrNot in lines%}
+        {% if highlightOrNot == True %}
+ <span style="background-color: #FFFF00">{{ line }}</span>              
+        {% else %}
+           {{ line }}          
+        {% endif  %} 
+   {% endfor %}
+</div>
+</code></pre>
+
+{% endblock %}
+
+
+
+{% block footer %}
+
+
+{% endblock %}

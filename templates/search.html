@@ -1,0 +1,53 @@
+{% extends "mobile.html" %}
+
+
+
+{% block content %}
+<div id="post-page" class="push-left post">
+	<div id="search">
+		<div class="comment card post">
+                <span class="highlightme"> Search</span>
+                <br>
+                <br>
+                <form action="{{url_for('search')}}" method="POST">
+
+                                <label for="labelbutton">Input a query:</label>
+				<input type="text" name="button" placeholder="" value="{{request.form['button']}}" onclick='javascript: this.value = ""'>
+                                <!--label for="labelscreen">  describe screen (optional):</label>
+				<input type="text" name="screen" placeholder="" value="{{request.form['screen']}}" onclick='javascript: this.value = ""'-->
+                                <!--label for="labelTopK">top K=</label-->
+				<!--input type="text" name="topK" placeholder="3" value="{{request.form['topK']}}" onclick='javascript: this.value = ""'-->
+				<input type="submit" name="command" value="Search">
+                                <br>
+			</form>
+
+
+<table cellpadding="10" cellspacing="10">
+{% if result %}
+<hr>
+<h2>Results:</h2>
+<tr>
+</tr>
+{% endif %}
+		{% for button in result%}
+                    <tr>                      
+                                 <td>
+                                        {{button}}
+                                </td>       
+
+                    </tr>
+        {% endfor %}
+</table>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+
+
+{% block footer %}
+
+
+{% endblock %}
